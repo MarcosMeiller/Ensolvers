@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+</head>
+<body>
+    <div class="container">
+		<h1>Task Management System</h1>
+		<hr>
+		<h2>Save Task</h2>
+
+		<form action="#" th:action="@{/saveTask}" th:object="${task}"
+			method="POST">
+
+			<input type="text" th:field="*{name}"
+				placeholder="Task Name">
+				
+				<input type="number" th:field="*{idUser}"
+				placeholder="Task id user" >
+				
+				<input type="text" th:field="*{id_folder}"
+				placeholder="Task id_folder">
+				
+				<button type="submit"> Save Task</button>
+		</form>
+		
+		<hr>
+		
+		<a th:href = "@{/}"> Back to Employee List</a>
+	</div>
+</body>
+</html>
