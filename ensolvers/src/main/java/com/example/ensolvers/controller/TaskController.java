@@ -27,6 +27,8 @@ public class TaskController {
         return "index";
     }
 
+
+
     @GetMapping("/showNewTaskForm")
     public String showNewTaskForm(Model model){
         System.out.println("hola");
@@ -62,4 +64,9 @@ public class TaskController {
 		return "redirect:/";
 	}
 
+    @GetMapping("/taskbyfolder/{id}")
+    public String viewTaskForFolder(Model model,@PathVariable (value = "id") long id){
+        model.addAttribute("listTask",taskService.getAllTaskByFolder(id));
+        return "task_by_folder";
+    }
 }

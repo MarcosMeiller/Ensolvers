@@ -9,4 +9,5 @@ public interface TaskService {
     void saveTask(Task task);
     Task getTaskById(long id);
     void deleteTask(long id);
+    public List<Task> getAllTaskByFolder(long id_folder);
 }

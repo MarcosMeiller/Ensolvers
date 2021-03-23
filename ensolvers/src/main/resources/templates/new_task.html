@@ -14,6 +14,7 @@
 		<form action="#" th:action="@{/saveTask}" th:object="${task}"
 			method="POST">
 
+
 			<input type="text" th:field="*{name}"
 				placeholder="Task Name">
 				
@@ -23,6 +24,7 @@
 				<input type="text" th:field="*{id_folder}"
 				placeholder="Task id_folder">
 				
+
 				<button type="submit"> Save Task</button>
 		</form>
 		

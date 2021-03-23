@@ -1,5 +1,6 @@
 package com.example.ensolvers.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,5 +44,20 @@ public class TaskServiceImpl implements TaskService{
     @Override
     public void deleteTask(long id) {
         this.taskRepository.deleteById(id);        
+    }
+
+    @Override
+    public List<Task> getAllTaskByFolder(long id) {
+ 
+        List<Task> tasks =taskRepository.findAll();
+        List<Task> task_filter = new ArrayList<>();
+        System.out.println(tasks);
+        System.out.println("aca");
+        for (Task task : tasks) {
+            if(task.getId_folder() == id){
+                task_filter.add(task);
+            }
+        }
+        return task_filter;
     }
 }

@@ -8,9 +8,10 @@
 
 </head>
 <body>
+
     <div align="center">
         <a th:href = "@{/showNewTaskForm}" >Add Task</a>
-        <h1 th:inline="text">Task List [[${#httpServletRequest.remoteUser}]]!</h1>
+        <h1>Task List</h1>
         <table border="1">
             <thead>
                     <tr>

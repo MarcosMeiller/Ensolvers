@@ -21,7 +21,9 @@
             <tr th:each="folder:${listFolders}">
                 <td th:text="${folder.name}"></td>
                 <td><a th:href="@{/showFormForUpdateFolder/{id}(id=${folder.id})}">Edit</a>
-                    <a th:href="@{/deleteFolder/{id}(id=${folder.id})}">Delete</a></td>
+                    <a th:href="@{/deleteFolder/{id}(id=${folder.id})}">Delete</a>
+                    <a th:href="@{/taskbyfolder/{id}(id=${folder.id})}">View</a>
+                </td>
             </tr>
         </tbody>
     </table>
