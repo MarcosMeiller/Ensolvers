@@ -1,6 +1,7 @@
 package com.example.ensolvers.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.ensolvers.model.Folder;
 import com.example.ensolvers.repository.FolderRepository;
@@ -27,4 +28,19 @@ public class FolderServiceImpl implements FolderService {
         this.folderRepository.deleteById(id);;        
     }
     
+    @Override
+    public Folder getFolderById(long id) {
+        Optional <Folder> optional = folderRepository.findById(id);
+        Folder folder = null;
+       
+        if(optional.isPresent()){
+            folder = optional.get();            
+        }else{
+            throw new RuntimeException("Folder not found");
+        }
+     
+    
+        return folder;
+               
+    }
 }

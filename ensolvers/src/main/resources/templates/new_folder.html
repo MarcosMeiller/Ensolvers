@@ -3,32 +3,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Management System</title>
+    <title>Document</title>
 </head>
 <body>
     <div class="container">
-		<h1>Task Management System</h1>
+		<h1>Folder Management System</h1>
 		<hr>
-		<h2>Save Task</h2>
+		<h2>Save Folder</h2>
 
-		<form action="#" th:action="@{/saveTask}" th:object="${task}"
+		<form action="#" th:action="@{/saveFolder}" th:object="${folder}"
 			method="POST">
 
 			<input type="text" th:field="*{name}"
-				placeholder="Task Name">
+				placeholder="Folder Name">
 				
 				<input type="number" th:field="*{idUser}"
-				placeholder="Task id user" >
+				placeholder="Folder id user" >
 				
-				<input type="text" th:field="*{id_folder}"
-				placeholder="Task id_folder">
 				
-				<button type="submit"> Save Task</button>
+				
+				<button type="submit"> Save Folder</button>
 		</form>
 		
 		<hr>
 		
-		<a th:href = "@{/}"> Back to Task List</a>
+		<a th:href = "@{/folders}"> Back to Folder List</a>
 	</div>
 </body>
 </html>

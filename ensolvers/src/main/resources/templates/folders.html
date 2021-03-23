@@ -7,18 +7,21 @@
 </head>
 <body>
     <h1>Folder List</h1>
+    <a th:href = "@{/showNewFolderForm}" >Add Folder</a>
     <table border="1">
+        
         <thead>
                 <tr>
                     <th>Folder Name</th>
-                   
+                    <th>Actions</th>
                 </tr>
                     
         </thead>
         <tbody>
             <tr th:each="folder:${listFolders}">
                 <td th:text="${folder.name}"></td>
-               
+                <td><a th:href="@{/showFormForUpdateFolder/{id}(id=${folder.id})}">Edit</a>
+                    <a th:href="@{/deleteFolder/{id}(id=${folder.id})}">Delete</a></td>
             </tr>
         </tbody>
     </table>

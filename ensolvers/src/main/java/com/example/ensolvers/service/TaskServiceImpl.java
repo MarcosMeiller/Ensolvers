@@ -2,7 +2,6 @@ package com.example.ensolvers.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Scanner;
 
 import com.example.ensolvers.model.Task;
 import com.example.ensolvers.repository.TaskRepository;

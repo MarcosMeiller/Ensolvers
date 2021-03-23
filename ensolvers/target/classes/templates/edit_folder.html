@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folder Management System</title>
+</head>
+<body>
+    <div class="container">
+		<h1>Folder Management System</h1>
+		<hr>
+		<h2>Save Folder</h2>
+
+		<form action="#" th:action="@{/saveFolder}" th:object="${folder}"
+			method="POST">
+            	<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+
+			<input type="text" th:field="*{name}"
+				placeholder="Folder Name">
+				
+				<input type="number" th:field="*{idUser}"
+				placeholder="Folder id user" >
+				
+				
+				
+				<button type="submit"> Save Folder</button>
+		</form>
+		
+		<hr>
+		
+		<a th:href = "@{/folders}"> Back to Folder List</a>
+	</div>
+</body>
+</html>
