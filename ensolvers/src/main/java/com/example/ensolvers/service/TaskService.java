@@ -10,4 +10,6 @@ public interface TaskService {
     Task getTaskById(long id);
     void deleteTask(long id);
     public List<Task> getAllTaskByFolder(long id_folder);
+    boolean checkOut(Task task);
+    boolean validateFormField (String paramName);
 }

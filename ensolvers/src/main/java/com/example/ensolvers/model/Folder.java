@@ -15,9 +15,6 @@ public class Folder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "id_user")
-    private int idUser;
-
     @Column(name = "name")
     private String name;
 
@@ -25,10 +22,7 @@ public class Folder {
         
     }
 
-    public int getIdUser() {
-        return idUser;
-    }
-
+ 
     public String getName() {
         return name;
     }
@@ -43,10 +37,7 @@ public class Folder {
         this.id = id;
     }
 
-  
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
+
 
     public void setName(String name) {
         this.name = name;

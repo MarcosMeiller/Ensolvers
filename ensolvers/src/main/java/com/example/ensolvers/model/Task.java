@@ -17,8 +17,6 @@ public class Task {
     private long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "id_user")
-    private int idUser;
     @Column(name = "id_folder")
     private long id_folder;
     @Column(name = "status")
@@ -28,9 +26,7 @@ public class Task {
         
     }
 
-    public int getIdUser() {
-        return idUser;
-    }
+   
 
     public boolean getState(){
         return state;
@@ -57,9 +53,7 @@ public class Task {
     public void setId_folder(long id_folder) {
         this.id_folder = id_folder;
     }
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
+
 
     public void setName(String name) {
         this.name = name;

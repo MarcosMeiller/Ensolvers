@@ -3,7 +3,6 @@ package com.example.ensolvers.controller;
 
 import com.example.ensolvers.model.Task;
 import com.example.ensolvers.service.TaskService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +20,7 @@ public class TaskController {
 
 
 
-    @GetMapping("/")
+    @GetMapping("/allTask")
     public String viewHomePage(Model model){
         model.addAttribute("listTask",taskService.getAllTask());
         return "index";
@@ -30,19 +29,28 @@ public class TaskController {
 
 
     @GetMapping("/showNewTaskForm")
-    public String showNewTaskForm(Model model){
-        System.out.println("hola");
-        
+    public String showNewTaskForm(Model model){        
         Task task = new Task();
         model.addAttribute("task", task);
         return "new_task";
         
     }
 
-    @PostMapping("/saveTask")
-    public String saveTask(@ModelAttribute("task") Task task){
-        taskService.saveTask(task);
-        return "redirect:/";
+    @PostMapping("/saveTask/{id}")
+    public String saveTask(@ModelAttribute("task") Task task,@PathVariable (value = "id") long id, Model model){
+        
+        task.setId_folder(id);
+        boolean control = taskService.checkOut(task);
+        if(!control){ 
+            taskService.saveTask(task);
+        }
+        
+        model.addAttribute("listTask",taskService.getAllTaskByFolder(id));
+        Task newtask = new Task();
+        newtask.setId_folder(id);
+        model.addAttribute("task", newtask);
+
+        return "task_by_folder";
     }
 
     @GetMapping("/showFormForUpdate/{id}")
@@ -67,6 +75,10 @@ public class TaskController {
     @GetMapping("/taskbyfolder/{id}")
     public String viewTaskForFolder(Model model,@PathVariable (value = "id") long id){
         model.addAttribute("listTask",taskService.getAllTaskByFolder(id));
+        Task task = new Task();
+        task.setId_folder(id);
+        model.addAttribute("task", task);
+
         return "task_by_folder";
     }
 }

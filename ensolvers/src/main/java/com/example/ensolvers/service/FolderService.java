@@ -9,5 +9,7 @@ public interface FolderService {
     Folder getFolderById(long id);
     void saveFolder(Folder folder);
     void deleteFolder(long id);
+    boolean checkOut(Folder folder);
+    boolean validateFormField (String paramName);
 
 }

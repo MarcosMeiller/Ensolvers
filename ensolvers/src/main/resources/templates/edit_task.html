@@ -4,36 +4,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Management System</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+	<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+
 </head>
 <body>
     <div class="container">
+		<header class="text-center">
+			<div class="p-3 mb-2 bg-primary text-white">
 		<h1>Task Management System</h1>
-		<hr>
-		<h2>Save Task</h2>
-
-		<form action="#" th:action="@{/saveTask}" th:object="${task}"
+	
+			</div>
+		</header>
+		<form action="#" th:action="@{/saveTask/{id}(id=${task.id_folder})}" th:object="${task}"
 			method="POST">
            	<!-- Add hidden form field to handle update -->
 			<input type="hidden" th:field="*{id}" />
+			<div class="p-3 mb-2 bg-dark text-white">
 
 			<input type="text" th:field="*{name}"
-				placeholder="Task Name">
+				placeholder="Task Name" required>
 				
-				<input type="number" th:field="*{idUser}"
-				placeholder="Task id user" >
-				
-				<input type="text" th:field="*{id_folder}"
-				placeholder="Task id_folder">
 				
 				<label>Completed?</label>
 				<input type="checkbox" th:field="*{state}" />
 
-				<button type="submit"> Save Task</button>
+				<button type="submit" class="btn btn-primary"> Save Task</button>
+			</div>
 		</form>
 		
-		<hr>
 		
-		<a th:href = "@{/}"> Back to Employee List</a>
+		<div class="p-3 mb-2 bg-dark text-white">
+
+    <a th:href = "@{/}" class="btn btn-info"><p > Back to Folders List</p></a>
+
+		</div>
 	</div>
 </body>
 </html>
